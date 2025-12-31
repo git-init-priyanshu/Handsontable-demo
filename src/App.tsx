@@ -45,8 +45,8 @@ function App() {
       colData.forEach((val: any, row: number) => {
         const isDuplicate = val && counts.get(val) > 1;
 
-        // We only modify if needed to minimize churn only if strictly necessary, 
-        // but calling setCellMeta is generally cheap if value is same. 
+        // We only modify if needed to minimize churn only if strictly necessary,
+        // but calling setCellMeta is generally cheap if value is same.
         // Ideally we check current meta.
         const cellMeta = hot.getCellMeta(row, col);
 
@@ -81,9 +81,51 @@ function App() {
         }}
         data={data}
         colHeaders={columns}
+        columns={[
+          {},
+          {},
+          { type: "date", dateFormat: "MM/DD" },
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          { type: "dropdown", source: ["Indeed", "ZipOrg", "ZipSp", "Mantal"] },
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          { type: "checkbox" },
+          { type: "checkbox" },
+          { type: "checkbox" },
+          { type: "checkbox" },
+          {},
+          {},
+        ]}
         afterChange={(_changes, source) => {
           // Trigger duplicate check on any change that might affect data
-          if (["edit", "CopyPaste.paste", "Autofill.fill", "Undo", "Redo"].includes(source)) {
+          if (
+            [
+              "edit",
+              "CopyPaste.paste",
+              "Autofill.fill",
+              "Undo",
+              "Redo",
+            ].includes(source)
+          ) {
             checkForDuplicates();
           }
         }}
