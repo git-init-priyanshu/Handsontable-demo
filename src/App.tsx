@@ -149,7 +149,7 @@ function App() {
         multiColumnSorting={true}
         filters={true}
         hiddenColumns={{
-          columns: [26, 27, 28, 29, 30],
+          // columns: [26, 27, 28, 29, 30],
           indicators: true,
           copyPasteEnabled: false,
         }}
